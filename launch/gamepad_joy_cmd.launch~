@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<launch>
+   	<!-- Launches the AR.Drone driver -->
+	<node name="ardrone_driver" pkg="ardrone_autonomy" type="ardrone_driver" output="screen" clear_params="true">
+	    <param name="outdoor" value="0" />
+			<!-- If we are flying outdoors, will select more aggressive default settings -->
+	    <param name="flight_without_shell" value="0" /> <!-- Changes internal controller gains if we are flying without the propeller guard -->
+	    <param name="altitude_max" value="10000" />		<!-- in millimeters = 3 meters = 9' -->
+            <param name="altitude_min" value="500" />		<!-- in millimeters = 5cm = 2" -->
+            <param name="euler_angle_max" value="0.1" />	<!-- maximum allowable body angle in radians = 5 degrees -->
+            <param name="control_vz_max" value="200" />		<!-- maximum z velocity in mm/sec = 0.2m/sec -->
+	    <param name="control_yaw" value="0.7" />		<!-- maximum rotation rate in radians/sec = 40 degrees per second (1/9 rev/sec) -->
+	    <param name="ardrone/bottom/camera_info_url" value="/home/baira/catkin_ws/devel/cam_info_bottom_1.yaml" />
+	    <!-- param name="detect_type" value="10" / -->
+	    <!-- param name="detections_select_h" value="32" / -->	<!-- In the horizontal camera, look for the orange-blue-orange markers -->
+	    <!-- param name="detections_select_v_hsync" value="128" / -->  <!-- In the vertical camera, detect the A4 marker -->
+	    <!-- param name="enemy_colors" value="3" / -->			<!-- Orange-Blue-Orange = 3 -->
+	    <!-- param name="enemy_without_shell" value="0" / -->	<!-- Detect the indoor stickers, rather than the outdoor hull -->
+	    </node>
+
+	<node name="joy_node" pkg="joy" type="joy_node" output="screen" clear_params="true">
+		<param name="dev" type="str" value="/dev/input/js0"/>
+	</node>
+	
+	<!-- Launches the joystick controller -->
+	<node name="gamepad_joy_cmd" pkg="ArDrone_Gamepad" type="gamepad_joy_cmd" output="screen" required="true">
+		<!-- Configures the joystick button mapping PS3-->
+		<!--param name="button_reset"	        value="8" />
+		<param name="button_land"		        value="1" />
+		<param name="button_takeoff"		        value="2" />
+		<param name="button_togglecam"           value="5" />
+		<param name="button_flattrim"            value="4" /-->		
+
+		<!-- Configures the joystick axis mapping -->
+		<!--param name="axis_linear_x"			value="4" />
+		<param name="axis_linear_y"			value="3" />
+		<param name="axis_linear_z"			value="1" />
+		<param name="axis_angular_z"			value="0" /-->
+
+                <!-- Configures the joystick button mapping jooystick-->
+		<param name="button_reset"	         value="0" />
+		<param name="button_land"		 value="2" />
+		<param name="button_takeoff"		 value="1" />
+		<param name="button_togglecam"           value="5" />
+		<param name="button_flattrim"            value="4" />
+		
+		<param name="button_speed_up"            value="6" />
+                <param name="button_speed_down"          value="8" />
+
+		<!--Configures the joystick axis mapping-->
+		<param name="axis_linear_x"			value="0" />
+		<param name="axis_linear_y"			value="1" />
+		<param name="axis_linear_z"			value="3" />
+		<param name="axis_angular_z"			value="4" />
+		
+		<!--param name="summit_position_topic" value="/find_summit_final/Estimated_position"/>
+    <param name="image_topic" value="/quadrotor/downward_cam/camera/image"/>
+    <param name="cam_info_topic" value="/quadrotor/downward_cam/camera/camera_info"/>
+    <param name="altitude" value="/quadrotor/sonar_height"/>
+    <param name="imu_topic" value="/quadrotor/raw_imu"/-->
+		<!-- Configures the joystick button mapping JUANJI-->
+		<!--param name="button_reset"	        value="11" />
+		<param name="button_land"		        value="2" />
+		<param name="button_takeoff"		        value="1" />
+		<param name="button_togglecam"           value="7" />
+		<param name="button_flattrim"            value="0" /-->		
+
+		<!-- Configures the joystick axis mapping -->
+		<!--param name="axis_linear_x"			value="3" />
+		<param name="axis_linear_y"			value="2" />
+		<param name="axis_linear_z"			value="1" />
+		<param name="axis_angular_z"			value="0" /-->
+		
+		<!-- Configures the joystick mapping -->
+		<param name="l_scale"			value="1.0" />
+		<param name="a_scale"		value="1.0" />
+		
+	</node>
+</launch>

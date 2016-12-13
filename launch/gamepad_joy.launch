@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<launch>
+
+	<node name="joy_node" pkg="joy" type="joy_node" output="screen" clear_params="true">
+		<param name="dev" type="str" value="/dev/input/js0"/>
+	</node>
+	
+	<!-- Launches the joystick controller -->
+	<node name="gamepad_joy_cmd" pkg="ArDrone_Gamepad" type="gamepad_joy_cmd" output="screen" required="true">
+		<!-- Configures the joystick button mapping PS3-->
+		<!--param name="button_reset"	        value="8" />
+		<param name="button_land"		        value="1" />
+		<param name="button_takeoff"		        value="2" />
+		<param name="button_togglecam"           value="5" />
+		<param name="button_flattrim"            value="4" /-->		
+
+		<!-- Configures the joystick axis mapping -->
+		<!--param name="axis_linear_x"			value="4" />
+		<param name="axis_linear_y"			value="3" />
+		<param name="axis_linear_z"			value="1" />
+		<param name="axis_angular_z"			value="0" /-->
+
+                <!-- Configures the joystick button mapping jooystick-->
+		<param name="button_reset"	         value="3" />
+		<param name="button_land"		 value="2" />
+		<param name="button_takeoff"		 value="1" />
+		<param name="button_togglecam"           value="5" />
+		<param name="button_flattrim"            value="4" />
+		
+		<param name="button_speed_up"            value="6" />
+                <param name="button_speed_down"          value="8" />
+
+		<!--Configures the joystick axis mapping-->
+		<param name="axis_linear_x"			value="0" />
+		<param name="axis_linear_y"			value="1" />
+		<param name="axis_linear_z"			value="3" />
+		<param name="axis_angular_z"			value="4" />
+		
+		<!--param name="summit_position_topic" value="/find_summit_final/Estimated_position"/>
+    <param name="image_topic" value="/quadrotor/downward_cam/camera/image"/>
+    <param name="cam_info_topic" value="/quadrotor/downward_cam/camera/camera_info"/>
+    <param name="altitude" value="/quadrotor/sonar_height"/>
+    <param name="imu_topic" value="/quadrotor/raw_imu"/-->
+		<!-- Configures the joystick button mapping JUANJI-->
+		<!--param name="button_reset"	        value="11" />
+		<param name="button_land"		        value="2" />
+		<param name="button_takeoff"		        value="1" />
+		<param name="button_togglecam"           value="7" />
+		<param name="button_flattrim"            value="0" /-->		
+
+		<!-- Configures the joystick axis mapping -->
+		<!--param name="axis_linear_x"			value="3" />
+		<param name="axis_linear_y"			value="2" />
+		<param name="axis_linear_z"			value="1" />
+		<param name="axis_angular_z"			value="0" /-->
+		
+		<!-- Configures the joystick mapping -->
+		<param name="l_scale"			value="1.0" />
+		<param name="a_scale"		value="1.0" />
+		
+	</node>
+
+</launch>

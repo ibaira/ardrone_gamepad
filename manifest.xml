@@ -1,0 +1,20 @@
+<package>
+  <description brief="ArDrone_Gamepad">
+
+    Controller for the Ar Drone using a stardard gamepad
+
+  </description>
+  <author>Ismael Baira</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/Ar_droneGamepadI</url>
+
+  <depend package="roscpp"/>
+  <depend package="sensor_msgs"/>
+  <depend package="geometry_msgs"/>
+  <depend package="std_srvs"/>
+  <depend package="std_msgs"/>
+
+</package>
+
+

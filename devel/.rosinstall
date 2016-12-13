@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/baira/catkin_ws/devel/ArDrone_Gamepad/devel/setup.sh

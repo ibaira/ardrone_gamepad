@@ -1,0 +1,12 @@
+num_of_buttons: 12 
+ButtonEmergency: 7
+ButtonLand: 0
+ButtonTakeoff: 3
+AxisRoll: 3
+AxisPitch: 4
+AxisYaw: 0
+AxisZ: 1
+ScaleRoll: 1
+ScalePitch: 1
+ScaleYaw: 1
+ScaleZ: 1
